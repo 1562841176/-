@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <mate name="viewport" content="width=device-width,initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
+    <body>
+      <iframe src="http://b.zf.cn:3000/b.html" frameborder="0" id="frame" onload="load()">
+      </iframe>
+      <!-- 域名 一级域名 二级域名 -->
+      <!--  www.baidu.com 一级域名 -->
+      <!-- video.baidu.com 二级域名 -->
+      <!-- 限制必须是一级域名二级域名的关系 -->
+      <script>
+          document.domain='zf.cn'
+          function load(){
+              let frame=document.getElementById('frame');
+              console.log(frame.contentWindow.a)
+          }
+      </script>
+    </body>
+</html>

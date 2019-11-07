@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <mate name="viewport" content="width=device-width,initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
+    <body>
+      <script>
+          let xhr=new XMLHttpRequest();
+          document.cookie='name=zfcross';
+          xhr.withCredentials=true;
+          xhr.open('PUT','http://localhost:4000/getData',true);
+          xhr.setRequestHeader('name','zfcross');
+          xhr.onreadystatechange=function(){
+              if(xhr.readyState===4){
+                  // 304 作缓存
+                  if(xhr.status>=200 && xhr.status<300
+                  || xhr.status===304){
+                      console.log(xhr.response);
+                      console.log(xhr.getResponseHeader('name'));;
+                  }
+              }
+          }
+          xhr.send();
+      </script>
+    </body>
+</html>
